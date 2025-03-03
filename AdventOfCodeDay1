@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class AdventOfCodeDay1 {
+    public static int calculateTotalDistance(List<Integer> leftList, List<Integer> rightList) {
+        // Step 1: Sort both lists
+        Collections.sort(leftList);
+        Collections.sort(rightList);
+
+        int totalDistance = 0;
+
+        // Step 2: Compute absolute differences and sum them up
+        for (int i = 0; i < leftList.size(); i++) {
+            totalDistance += Math.abs(leftList.get(i) - rightList.get(i));
+        }
+
+        return totalDistance;
+    }
+
+    public static void main(String[] args) {
+        // Example input
+        List<Integer> leftList = Arrays.asList(3, 4, 2, 1, 3, 3);
+        List<Integer> rightList = Arrays.asList(4, 3, 5, 3, 9, 3);
+
+        int totalDistance = calculateTotalDistance(leftList, rightList);
+        System.out.println("Total Distance: " + totalDistance);
+    }
+}
